@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — Umair Farooq</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .login-box {
+      max-width: 400px;
+      margin: 120px auto;
+      padding: 40px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <div class="login-box">
+      <h1 style="text-align: center; margin-bottom: 30px;">Admin Login</h1>
+      <form id="loginForm" class="contact-form">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter admin password" required>
+        <button type="submit" class="btn" style="width: 100%;">Log In</button>
+        <p id="loginStatus" class="form-note" style="text-align: center; color: #a02c2c; margin-top: 15px;"></p>
+      </form>
+    </div>
+  </main>
+
+  <!-- We will link this to the backend later -->
+  <script>
+    const BACKEND_URL = 'https://umairfarooquf-backend.onrender.com';
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('loginStatus');
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Checking...';
+      status.textContent = '';
+
+      try {
+        const res = await fetch(`${BACKEND_URL}/api/admin/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password: document.getElementById('password').value })
+        });
+        const data = await res.json();
+        
+        if (data.success) {
+          localStorage.setItem('adminToken', data.token);
+          window.location.href = 'admin.html';
+        } else {
+          status.textContent = 'Wrong password. Try again.';
+        }
+      } catch (err) {
+        status.textContent = 'Network error. Server might be waking up.';
+      }
+      btn.textContent = 'Log In';
+    });
+  </script>
+</body>
+</html>
