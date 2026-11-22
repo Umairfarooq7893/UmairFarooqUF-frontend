@@ -5,62 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ideas &amp; Initiatives — Umair Farooq</title>
   <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Tab Styles */
-    .tab-menu {
-      display: flex;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 40px;
-      overflow-x: auto;
-    }
-    .tab-btn {
-      background: none;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      transition: all 0.2s;
-      white-space: nowrap;
-    }
-    .tab-btn:hover { color: var(--text); }
-    .tab-btn.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
-    }
-    .tab-content { display: none; }
-    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-
-    /* Research List Style */
-    .research-item {
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      margin-bottom: 20px;
-      background: var(--surface);
-    }
-    .research-item h3 { margin-bottom: 8px; }
-    .research-meta {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 16px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .research-abstract { margin-bottom: 16px; font-size: 0.95rem; }
-  </style>
 </head>
 <body>
 
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
-        <span style="background: var(--text); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">UF</span>
+      <a href="index.html" class="logo">
+        <span class="logo-mark">UF</span>
         UMAIR FAROOQ
       </a>
       <button class="menu-toggle" aria-label="Toggle menu">☰</button>
@@ -76,57 +27,93 @@
     </div>
   </header>
 
-  <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+  <main class="container" style="padding-top: 72px; padding-bottom: 80px;">
     
     <div style="margin-bottom: 30px;">
+      <p class="eyebrow">Thinking in public</p>
       <h1>Ideas, Articles &amp; Initiatives</h1>
       <p class="lead">A central hub for my explorations in technology, education, and business. Read my latest work or submit your own.</p>
     </div>
 
     <!-- TAB NAVIGATION -->
     <div class="tab-menu">
-      <button class="tab-btn active" onclick="openTab('tab-ideas')">Explore My Ideas</button>
-      <button class="tab-btn" onclick="openTab('tab-articles')">Read My Articles</button>
-      <button class="tab-btn" onclick="openTab('tab-research')">Research Papers</button>
-      <button class="tab-btn" onclick="openTab('tab-initiatives')">My Initiatives</button>
-      <button class="tab-btn" onclick="openTab('tab-submit')">Submit Your Idea</button>
+      <button class="tab-btn active" onclick="openTab('tab-ideas', this)">Explore My Ideas</button>
+      <button class="tab-btn" onclick="openTab('tab-articles', this)">Read My Articles</button>
+      <button class="tab-btn" onclick="openTab('tab-research', this)">Research Papers</button>
+      <button class="tab-btn" onclick="openTab('tab-initiatives', this)">My Initiatives</button>
+      <button class="tab-btn" onclick="openTab('tab-submit', this)">Submit Your Idea</button>
     </div>
 
     <!-- TAB 1: EXPLORE IDEAS (Cards) -->
     <div id="tab-ideas" class="tab-content active">
+      <div class="media-section-heading">
+        <div>
+          <p class="eyebrow" style="margin-bottom: 6px;">Selected thinking</p>
+          <h2>Media Spotlight</h2>
+        </div>
+      </div>
+      <div class="spotlight-grid">
+        <a href="https://www.youtube.com/@umairf313" target="_blank" class="spotlight-card" aria-label="Watch on YouTube">
+          <div class="spotlight-card-content">
+            <span class="spotlight-platform">YouTube Shorts</span>
+            <div>
+              <h3>Building ideas beyond the classroom</h3>
+              <p>A short conversation on curiosity, research, and student-led impact.</p>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/mir_umair_farooq/" target="_blank" class="spotlight-card" aria-label="View on Instagram">
+          <div class="spotlight-card-content">
+            <span class="spotlight-platform">Instagram Reel</span>
+            <div>
+              <h3>One idea. One clear message.</h3>
+              <p>Quick insights from the independent media journey.</p>
+            </div>
+          </div>
+        </a>
+        <a href="podcast.html" class="spotlight-card" aria-label="Explore the podcast">
+          <div class="spotlight-card-content">
+            <span class="spotlight-platform">Podcast Clip</span>
+            <div>
+              <h3>What meaningful conversations unlock</h3>
+              <p>Explore leaders, educators, founders, and new perspectives.</p>
+            </div>
+          </div>
+        </a>
+      </div>
       <div class="grid-2">
-        <a href="#" class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <a href="#" class="card editorial-card">
           <div>
             <p class="eyebrow">Idea · May 2024</p>
             <h3>The Future of EdTech</h3>
             <p>How technology is bridging the gap in rural education and what still needs to be done.</p>
           </div>
-          <span class="btn btn-outline" style="margin-top: 24px; align-self: flex-start; padding: 8px 16px; font-size: 0.85rem;">Read Idea</span>
+          <span class="btn btn-outline" style="margin-top: 24px; align-self: flex-start;">Read Idea</span>
         </a>
-        <a href="#" class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <a href="#" class="card editorial-card">
           <div>
             <p class="eyebrow">Idea · Apr 2024</p>
             <h3>Building in Public</h3>
             <p>Notes on entrepreneurship and creating value as a student without corporate backing.</p>
           </div>
-          <span class="btn btn-outline" style="margin-top: 24px; align-self: flex-start; padding: 8px 16px; font-size: 0.85rem;">Read Idea</span>
+          <span class="btn btn-outline" style="margin-top: 24px; align-self: flex-start;">Read Idea</span>
         </a>
       </div>
     </div>
 
     <!-- TAB 2: READ ARTICLES (Editorial List) -->
     <div id="tab-articles" class="tab-content">
-      <div style="max-width: 800px;">
-        <div style="padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
-          <h3 style="margin-bottom: 5px;"><a href="#">The Psychology of Student Startups</a></h3>
+      <div class="article-list">
+        <article class="article-item">
+          <h3><a href="#">The Psychology of Student Startups</a></h3>
           <p class="eyebrow">Published Article · May 12, 2024</p>
           <p>Why the fear of failure is the biggest barrier for young entrepreneurs, and how to overcome it.</p>
-        </div>
-        <div style="padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
-          <h3 style="margin-bottom: 5px;"><a href="#">Rethinking Higher Education Curriculums</a></h3>
+        </article>
+        <article class="article-item">
+          <h3><a href="#">Rethinking Higher Education Curriculums</a></h3>
           <p class="eyebrow">Published Article · Apr 05, 2024</p>
           <p>Are we teaching students the right skills for the 2030 job market? An analysis of current IT degrees.</p>
-        </div>
+        </article>
       </div>
     </div>
 
@@ -160,7 +147,7 @@
 
     <!-- TAB 5: SUBMIT YOUR IDEA (Comprehensive Form) -->
     <div id="tab-submit" class="tab-content">
-      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; max-width: 800px;">
+      <div class="form-panel">
         <h2 style="margin-top: 0;">Submit Your Initiative</h2>
         <p class="lead" style="font-size: 1rem; margin-bottom: 30px;">
           Have an idea or project? Submit it below. Once reviewed, it may be published on the platform. You will receive a unique tracking ID to check the status later.
@@ -200,7 +187,7 @@
           <input type="text" id="contact" placeholder="How can we reach you?" required>
 
           <button type="submit" class="btn" style="margin-top: 30px;">Submit for Review</button>
-          <p class="form-note">(Note: This form UI is ready. Backend connection will be added later).</p>
+          <p class="form-note">Submissions are sent securely to the platform backend.</p>
         </form>
       </div>
     </div>
@@ -216,7 +203,7 @@
   <script src="js/script.js"></script>
   <script>
     // JavaScript to handle the Tabs
-    function openTab(tabId) {
+    function openTab(tabId, activeButton) {
       // Hide all tab contents
       const contents = document.querySelectorAll('.tab-content');
       contents.forEach(content => content.classList.remove('active'));
@@ -229,7 +216,7 @@
       document.getElementById(tabId).classList.add('active');
 
       // Highlight the clicked button
-      event.currentTarget.classList.add('active');
+      activeButton.classList.add('active');
     }
   </script>
 </body>
