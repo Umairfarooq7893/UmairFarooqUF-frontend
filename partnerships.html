@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Umair Farooq</title>
+  <title>Partnerships — Umair Farooq</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -20,8 +20,8 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="podcast.html">Podcast</a></li>
           <li><a href="ideas.html">IDEAS</a></li>
-          <li><a href="partnerships.html">Partnership</a></li>
-          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="partnerships.html" class="active">Partnership</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </nav>
     </div>
@@ -31,33 +31,86 @@
     
     <div class="hero-inner" style="align-items: flex-start;">
       
-      <!-- LEFT SIDE: Your Story -->
-      <div class="hero-text">
-        <h1>About Me</h1>
-        
+      <!-- LEFT SIDE: Text and Info -->
+      <div class="hero-text" style="max-width: 500px;">
+        <h1>Partnerships &amp; Collaboration</h1>
         <p class="lead">
-          I am currently a B.Tech IT student, but my work extends beyond the classroom. I am an explorer, a builder, and someone deeply interested in connecting with interesting people.
+          I am building an independent platform to host meaningful conversations and explore new ideas. 
+        </p>
+        <p class="lead">
+          If you are a company, startup, or founder looking to collaborate, sponsor a podcast, or discuss business opportunities, I would love to hear from you. Let's build something valuable together.
         </p>
         
-        <p class="lead">
-          Through this platform, I am building a recognizable personal brand and establishing a strong network in the technology and business ecosystem. I am not an established entrepreneur yet, but I am actively working on ideas, research, and collaborations that I plan to develop into something meaningful.
-        </p>
-        
-        <p class="lead">
-          I connect with school principals, CEOs, CTOs, founders, and academicians to discuss meaningful subjects. Whether it's the future of education, advancements in technology, or the realities of building a business, my goal is to create a space for informative, professional conversations that create real value.
-        </p>
-
-        <div style="margin-top: 40px; border-top: 1px solid var(--border); padding-top: 30px;">
-          <h3 style="font-size: 1.2rem; margin-bottom: 15px;">My Vision</h3>
-          <p style="color: var(--muted);">
-            To build a credible independent media and research platform that bridges the gap between students, educators, and industry leaders, while exploring entrepreneurship and collaborative opportunities.
-          </p>
+        <div style="margin-top: 30px;">
+          <h3 style="font-size: 1.1rem; margin-bottom: 10px;">What I am open to:</h3>
+          <ul style="list-style-type: none; padding: 0; color: var(--muted); line-height: 2;">
+            <li>✓ Podcast Sponsorships</li>
+            <li>✓ Startup Collaborations</li>
+            <li>✓ Consulting &amp; Advisory</li>
+            <li>✓ Research Partnerships</li>
+          </ul>
         </div>
       </div>
 
-      <!-- RIGHT SIDE: Photo -->
-      <div class="hero-photo" style="position: sticky; top: 100px;">
-        <img src="images/profile.jpg" alt="Umair Farooq" />
+      <!-- RIGHT SIDE: Dynamic Form -->
+      <div style="width: 100%; max-width: 480px;">
+        
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 32px;">
+          <h3 style="margin-top: 0; margin-bottom: 20px;">Send a Request</h3>
+          
+          <form class="contact-form" id="partnershipForm">
+            
+            <!-- Select Type FIRST to trigger the dynamic fields -->
+            <label for="type">Partnership Type</label>
+            <select id="type" required onchange="updateFormFields()">
+              <option value="">Select an option...</option>
+              <option value="sponsorship">Sponsorship</option>
+              <option value="collaboration">Startup Collaboration</option>
+              <option value="consulting">Consulting / Advisory</option>
+              <option value="other">Other</option>
+            </select>
+
+            <!-- DYNAMIC CONTENT APPEARS HERE -->
+            <div id="dynamicFields" style="display: none; margin-top: 10px; border-top: 1px dashed var(--border); padding-top: 10px;">
+              
+              <div id="fields-sponsorship" class="type-fields" style="display: none;">
+                <label for="budget">Estimated Budget (Optional)</label>
+                <input type="text" id="budget" placeholder="e.g., $500 - $1000">
+              </div>
+
+              <div id="fields-collaboration" class="type-fields" style="display: none;">
+                <label for="startup-stage">Startup Stage</label>
+                <select id="startup-stage">
+                  <option value="idea">Idea Phase</option>
+                  <option value="mvp">MVP / Building</option>
+                  <option value="funded">Funded / Scaling</option>
+                </select>
+              </div>
+
+              <div id="fields-consulting" class="type-fields" style="display: none;">
+                <label for="consult-topic">What do you need help with?</label>
+                <input type="text" id="consult-topic" placeholder="e.g., Go-to-market strategy, tech architecture">
+              </div>
+
+            </div>
+
+            <!-- Common Fields -->
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your full name" required>
+
+            <label for="company">Company / Startup Name</label>
+            <input type="text" id="company" placeholder="Where do you work?">
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@company.com" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" placeholder="Briefly explain what you have in mind..." required></textarea>
+
+            <button type="submit" class="btn" style="width: 100%;">Send Request</button>
+          </form>
+        </div>
+
       </div>
 
     </div>
@@ -71,5 +124,32 @@
   </footer>
 
   <script src="js/script.js"></script>
+  
+  <!-- Script for Dynamic Fields -->
+  <script>
+    function updateFormFields() {
+      const type = document.getElementById('type').value;
+      const dynamicContainer = document.getElementById('dynamicFields');
+      const allFields = document.querySelectorAll('.type-fields');
+
+      // Hide all specific fields first
+      allFields.forEach(field => field.style.display = 'none');
+
+      if (type === '') {
+        dynamicContainer.style.display = 'none';
+      } else {
+        dynamicContainer.style.display = 'block';
+        
+        // Show the specific field based on selection
+        if (type === 'sponsorship') {
+          document.getElementById('fields-sponsorship').style.display = 'block';
+        } else if (type === 'collaboration') {
+          document.getElementById('fields-collaboration').style.display = 'block';
+        } else if (type === 'consulting') {
+          document.getElementById('fields-consulting').style.display = 'block';
+        }
+      }
+    }
+  </script>
 </body>
 </html>
