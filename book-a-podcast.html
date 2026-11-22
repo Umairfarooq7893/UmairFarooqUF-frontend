@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Podcast — Umair Farooq</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <span style="background: var(--text); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">UF</span>
+        UMAIR FAROOQ
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="podcast.html" class="active">Podcast</a></li>
+          <li><a href="ideas.html">IDEAS</a></li>
+          <li><a href="partnerships.html">Partnership</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+    
+    <div style="max-width: 700px; margin-bottom: 50px;">
+      <h1>Book a Podcast</h1>
+      <p class="lead">
+        Fill out the details below to request a podcast session. You can choose to record at your location, my location, or a professional studio.
+      </p>
+    </div>
+
+    <div style="border-top: 1px solid var(--border); padding-top: 40px;">
+      
+      <form class="contact-form" id="bookingForm">
+        
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your full name" required>
+
+        <label for="designation">Designation / Title</label>
+        <input type="text" id="designation" placeholder="e.g., Principal, CEO, Founder, Student" required>
+
+        <label for="company">Company / Organization</label>
+        <input type="text" id="company" placeholder="Your company name">
+
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" placeholder="Your phone number" required>
+
+        <!-- UPDATED DROPDOWN -->
+        <label for="location">Preferred Podcast Location</label>
+        <select id="location" required onchange="toggleLocationInput()">
+          <option value="">Select an option...</option>
+          <option value="guest">My Location (drop ur location)</option>
+          <option value="host">Host's Location</option>
+          <option value="studio">Professional Studio (drop nearby studio)</option>
+        </select>
+
+        <!-- Hidden Location Details Box -->
+        <div id="locationDetailsDiv" style="display: none; margin-top: 18px;">
+          <label for="locationDetails" id="locationLabel">Drop your location / address</label>
+          <input type="text" id="locationDetails" placeholder="Enter exact address or area">
+        </div>
+
+        <label for="notes">Additional Notes</label>
+        <textarea id="notes" rows="4" placeholder="Any specific topics or requirements?"></textarea>
+
+        <button type="submit" class="btn">Submit Booking Request</button>
+        <p class="form-note">(Note: This form UI is ready. Backend connection will be added later).</p>
+      </form>
+
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Umair Farooq. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  
+  <script>
+    function toggleLocationInput() {
+      const locationSelect = document.getElementById('location');
+      const detailsDiv = document.getElementById('locationDetailsDiv');
+      const locationLabel = document.getElementById('locationLabel');
+      const locationInput = document.getElementById('locationDetails');
+
+      if (locationSelect.value === 'guest') {
+        detailsDiv.style.display = 'block';
+        locationLabel.textContent = 'Your Location / Address';
+        locationInput.placeholder = 'Enter your exact address or city';
+        locationInput.required = true;
+      } else if (locationSelect.value === 'studio') {
+        detailsDiv.style.display = 'block';
+        locationLabel.textContent = 'Nearby Studio';
+        locationInput.placeholder = 'Suggest a studio or area you prefer';
+        locationInput.required = true;
+      } else if (locationSelect.value === 'host') {
+        detailsDiv.style.display = 'none';
+        locationInput.required = false;
+        locationInput.value = '';
+      } else {
+        detailsDiv.style.display = 'none';
+        locationInput.required = false;
+        locationInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>

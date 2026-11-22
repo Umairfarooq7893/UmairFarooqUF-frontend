@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ideas &amp; Initiatives — Umair Farooq</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Tab Styles */
+    .tab-menu {
+      display: flex;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 40px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Research List Style */
+    .research-item {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 20px;
+      background: var(--surface);
+    }
+    .research-item h3 { margin-bottom: 8px; }
+    .research-meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .research-abstract { margin-bottom: 16px; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+        <span style="background: var(--text); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 0.8rem;">UF</span>
+        UMAIR FAROOQ
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="podcast.html">Podcast</a></li>
+          <li><a href="ideas.html" class="active">IDEAS</a></li>
+          <li><a href="partnerships.html">Partnership</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 60px; padding-bottom: 60px;">
+    
+    <div style="margin-bottom: 30px;">
+      <h1>Ideas, Articles &amp; Initiatives</h1>
+      <p class="lead">A central hub for my explorations in technology, education, and business. Read my latest work or submit your own.</p>
+    </div>
+
+    <!-- TAB NAVIGATION -->
+    <div class="tab-menu">
+      <button class="tab-btn active" onclick="openTab('tab-ideas')">Explore My Ideas</button>
+      <button class="tab-btn" onclick="openTab('tab-articles')">Read My Articles</button>
+      <button class="tab-btn" onclick="openTab('tab-research')">Research Papers</button>
+      <button class="tab-btn" onclick="openTab('tab-initiatives')">My Initiatives</button>
+      <button class="tab-btn" onclick="openTab('tab-submit')">Submit Your Idea</button>
+    </div>
+
+    <!-- TAB 1: EXPLORE IDEAS (Cards) -->
+    <div id="tab-ideas" class="tab-content active">
+      <div class="grid-2">
+        <a href="#" class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <p class="eyebrow">Idea · May 2024</p>
+            <h3>The Future of EdTech</h3>
+            <p>How technology is bridging the gap in rural education and what still needs to be done.</p>
+          </div>
+          <span class="btn btn-outline" style="margin-top: 24px; align-self: flex-start; padding: 8px 16px; font-size: 0.85rem;">Read Idea</span>
+        </a>
+        <a href="#" class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <p class="eyebrow">Idea · Apr 2024</p>
+            <h3>Building in Public</h3>
+            <p>Notes on entrepreneurship and creating value as a student without corporate backing.</p>
+          </div>
+          <span class="btn btn-outline" style="margin-top: 24px; align-self: flex-start; padding: 8px 16px; font-size: 0.85rem;">Read Idea</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- TAB 2: READ ARTICLES (Editorial List) -->
+    <div id="tab-articles" class="tab-content">
+      <div style="max-width: 800px;">
+        <div style="padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
+          <h3 style="margin-bottom: 5px;"><a href="#">The Psychology of Student Startups</a></h3>
+          <p class="eyebrow">Published Article · May 12, 2024</p>
+          <p>Why the fear of failure is the biggest barrier for young entrepreneurs, and how to overcome it.</p>
+        </div>
+        <div style="padding-bottom: 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px;">
+          <h3 style="margin-bottom: 5px;"><a href="#">Rethinking Higher Education Curriculums</a></h3>
+          <p class="eyebrow">Published Article · Apr 05, 2024</p>
+          <p>Are we teaching students the right skills for the 2030 job market? An analysis of current IT degrees.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: RESEARCH PAPERS (Academic List) -->
+    <div id="tab-research" class="tab-content">
+      <div class="research-item">
+        <h3>Integration of AI in Primary Education</h3>
+        <div class="research-meta">
+          <span><strong>Authors:</strong> Umair Farooq</span>
+          <span><strong>Domain:</strong> EdTech / AI</span>
+          <span><strong>Status:</strong> Unpublished Draft</span>
+        </div>
+        <p class="research-abstract"><strong>Abstract:</strong> This paper explores the potential of LLMs to assist teachers in rural areas with lesson planning and personalized student feedback...</p>
+        <a href="#" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">Read Paper</a>
+        <a href="#" class="btn" style="padding: 6px 14px; font-size: 0.85rem; margin-left: 10px;">Download PDF</a>
+      </div>
+    </div>
+
+    <!-- TAB 4: MY INITIATIVES -->
+    <div id="tab-initiatives" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <p class="eyebrow" style="color: #0369a1;">Initiative · Ongoing</p>
+          <h3>Student Founders Network</h3>
+          <p><strong>Objective:</strong> Connect student entrepreneurs with industry mentors.</p>
+          <p><strong>Progress:</strong> 30% (Building MVP).</p>
+          <a href="#" class="btn btn-outline" style="margin-top: 15px; padding: 8px 16px; font-size: 0.85rem;">Contribute to this</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: SUBMIT YOUR IDEA (Comprehensive Form) -->
+    <div id="tab-submit" class="tab-content">
+      <div style="background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 40px; max-width: 800px;">
+        <h2 style="margin-top: 0;">Submit Your Initiative</h2>
+        <p class="lead" style="font-size: 1rem; margin-bottom: 30px;">
+          Have an idea or project? Submit it below. Once reviewed, it may be published on the platform. You will receive a unique tracking ID to check the status later.
+        </p>
+        
+        <form class="contact-form" id="submitIdeaForm">
+          
+          <label for="title">Initiative Title</label>
+          <input type="text" id="title" placeholder="Give your initiative a clear title" required>
+
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="">Select a category...</option>
+            <option value="tech">Technology</option>
+            <option value="edu">Education</option>
+            <option value="biz">Business / Startup</option>
+            <option value="social">Social Impact</option>
+          </select>
+
+          <label for="problem">Problem They Want to Solve</label>
+          <textarea id="problem" rows="3" placeholder="What is the core issue you are addressing?" required></textarea>
+
+          <label for="solution">Proposed Solution</label>
+          <textarea id="solution" rows="3" placeholder="How does your initiative solve this problem?" required></textarea>
+
+          <label for="description">Detailed Description</label>
+          <textarea id="description" rows="4" placeholder="Explain your initiative in detail..." required></textarea>
+
+          <div style="border-top: 1px solid var(--border); margin: 30px 0 20px 0; padding-top: 20px;">
+            <h3 style="font-size: 1.1rem;">Your Details</h3>
+          </div>
+
+          <label for="name">Your Name</label>
+          <input type="text" id="name" placeholder="Full name" required>
+
+          <label for="contact">Contact Info (Email or Phone)</label>
+          <input type="text" id="contact" placeholder="How can we reach you?" required>
+
+          <button type="submit" class="btn" style="margin-top: 30px;">Submit for Review</button>
+          <p class="form-note">(Note: This form UI is ready. Backend connection will be added later).</p>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Umair Farooq. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // JavaScript to handle the Tabs
+    function openTab(tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from all buttons
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Show the selected tab content
+      document.getElementById(tabId).classList.add('active');
+
+      // Highlight the clicked button
+      event.currentTarget.classList.add('active');
+    }
+  </script>
+</body>
+</html>
